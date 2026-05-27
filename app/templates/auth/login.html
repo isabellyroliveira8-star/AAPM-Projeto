@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AAPM - Sistema de Estoque e Vendas</title>
+    <!-- <link rel="stylesheet" href="{{ request.url_for('static','CSS', path='login.css')}}"> -->
+</head>
+<body>
+
+    
+    <div class="login-wrapper">
+        <div class="login-header">
+            <h1>AAPM</h1>
+            <p>Gestão Escolar Integrada</p>
+        </div>
+
+        <div class="login-body">
+            <div class="system-title">
+                <h2>Controle de Estoque e Vendas</h2>
+            </div>
+
+            <form action="#">
+                <div class="input-group">
+                    <label for="perfil">Perfil de Acesso</label>
+                    <select id="perfil" required>
+                        <option value="" disabled selected>Selecione seu perfil...</option>
+                        <option value="caixa">Operador</option>
+                        <option value="admin">Administrador Geral</option>
+                    </select>
+                </div>
+
+                <div class="input-group">
+                    <label for="username">Usuário ou E-mail</label>
+                    <input type="text" id="username" placeholder="Digite seu usuário" required autocomplete="username">
+                </div>
+
+                <div class="input-group">
+                    <label for="password">Senha</label>
+                    <input type="password" id="password" placeholder="Digite sua senha" required autocomplete="current-password">
+                </div>
+
+                <div class="form-actions">
+                    <label class="remember-me">
+                        <input type="checkbox"> Lembrar credenciais
+                    </label>
+                    <a href="#" class="forgot-pass">Esqueceu a senha?</a>
+                </div>
+
+                <button type="submit" class="btn-submit">Acessar Sistema</button>
+            </form>
+
+            <div class="login-footer">
+                <p>&copy; 2026 AAPM. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
