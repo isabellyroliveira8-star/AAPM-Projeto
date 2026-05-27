@@ -1,4 +1,4 @@
-/* --- CONTAINER PRINCIPAL DA LISTAGEM --- */
+/* --- CONTAINER PRINCIPAL DA TELA --- */
 .painel-usuarios {
     width: 100%;
     max-width: 1100px;
@@ -9,21 +9,17 @@
     margin: 20px auto;
 }
 
-/* --- CABEÇALHO DA TELA --- */
+/* --- CABEÇALHO --- */
 .painel-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
     border-bottom: 2px solid #f1f5f9;
-    padding-bottom: 20px;
+    padding-bottom: 15px;
     margin-bottom: 25px;
-    gap: 20px;
 }
 
 .painel-header h2 {
     color: #1e3694; /* Azul escuro institucional */
     font-size: 1.8rem;
-    margin: 0 0 5px 0;
+    margin-bottom: 5px;
     display: flex;
     align-items: center;
     gap: 10px;
@@ -32,32 +28,11 @@
 .painel-header p {
     color: #64748b;
     font-size: 0.95rem;
-    margin: 0;
 }
 
-/* Botão Novo Usuário */
-.btn-novo-usuario {
-    background-color: #2b4cc4;
-    color: white;
-    text-decoration: none;
-    padding: 12px 20px;
-    border-radius: 6px;
-    font-weight: bold;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    transition: background 0.2s;
-    border: none;
-    cursor: pointer;
-}
-
-.btn-novo-usuario:hover {
-    background-color: #1e3694;
-}
-
-/* --- TABELA DE USUÁRIOS --- */
+/* --- TABELA RESPONSIVA --- */
 .tabela-container {
-    overflow-x: auto;
+    overflow-x: auto; /* Cria barra de rolagem se a tela for muito pequena */
 }
 
 .tabela-listagem {
@@ -66,6 +41,7 @@
     text-align: left;
 }
 
+/* Linha de títulos */
 .tabela-listagem th {
     background-color: #f8fafc;
     color: #1e293b;
@@ -76,6 +52,7 @@
     text-transform: uppercase;
 }
 
+/* Linhas com os dados dos usuários */
 .tabela-listagem td {
     padding: 16px;
     border-bottom: 1px solid #e2e8f0;
@@ -83,11 +60,12 @@
     font-size: 0.95rem;
 }
 
+/* Efeito visual ao passar o mouse na linha */
 .tabela-listagem tbody tr:hover {
     background-color: #f8fafc;
 }
 
-/* --- BADGES DE PERFIL (ROLES) --- */
+/* --- DESTAQUES: PERFIL (ROLES) --- */
 .badge {
     padding: 6px 12px;
     border-radius: 6px;
@@ -98,7 +76,7 @@
 
 .badge-admin {
     background-color: #ffe6cc;
-    color: #e68323; /* Laranja SENAI */
+    color: #e68323; /* Laranja da AAPM/SENAI */
 }
 
 .badge-funcionario {
@@ -106,7 +84,7 @@
     color: #475569;
 }
 
-/* --- BADGES DE STATUS --- */
+/* --- DESTAQUES: STATUS --- */
 .status-ativo {
     color: #15803d;
     background-color: #dcfce7;
@@ -123,27 +101,4 @@
     border-radius: 12px;
     font-size: 0.85rem;
     font-weight: bold;
-}
-
-/* --- COLUNA DE AÇÕES (EDITAR) --- */
-.acoes-coluna {
-    text-align: center;
-}
-
-.btn-editar {
-    background-color: #e68323; /* Laranja pro botão de edição se destacar */
-    color: white;
-    text-decoration: none;
-    padding: 8px 14px;
-    border-radius: 6px;
-    font-size: 0.85rem;
-    font-weight: bold;
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    transition: background 0.2s;
-}
-
-.btn-editar:hover {
-    background-color: #d57216;
 }
