@@ -1,0 +1,129 @@
+<!-- templates/index.html -->
+{% extends "base.html" %}
+
+{% block title %}
+AAPM | Início
+{% endblock %}
+
+{% block content %}
+
+<section class="hero">
+
+    <div class="hero-left">
+
+        <h1>
+            BEM VINDO <br>
+            A AAPM!
+        </h1>
+
+        <div class="line"></div>
+
+        <p>
+            O melhor para seus estudos
+            <strong>começa aqui!</strong>
+        </p>
+
+        <a href="#sobre" class="btn-hero">
+            VAMOS LÁ!
+        </a>
+
+        <div class="hero-icons">
+
+            <div class="icon-item">
+                <span>📚</span>
+                <p>Material de qualidade</p>
+            </div>
+
+            <div class="icon-item">
+                <span>👨‍🎓</span>
+                <p>Feito para estudantes</p>
+            </div>
+
+            <div class="icon-item">
+                <span>🎯</span>
+                <p>Foco no seu futuro</p>
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="hero-right">
+
+        <img
+            src="/static/img/camisa.png"
+            class="camisa"
+        >
+
+        <img
+            src="/static/img/caneta.png"
+            class="caneta"
+        >
+
+        <img
+            src="/static/img/lapis.png"
+            class="lapis"
+        >
+
+        <div class="info-card">
+            <img src="/static/img/logo-senai.png">
+
+            <p>
+                A AAPM existe para apoiar sua
+                jornada acadêmica.
+            </p>
+        </div>
+
+    </div>
+
+</section>
+
+<section class="sobre" id="sobre">
+
+    <div class="sobre-img">
+        <img src="/static/img/senai.jpg">
+    </div>
+
+    <div class="sobre-content">
+
+        <span>SOBRE A AAPM</span>
+
+        <h2>
+            Apoiamos estudantes,
+            incentivamos o <strong>futuro.</strong>
+        </h2>
+
+        <div class="line-orange"></div>
+
+        <p>
+            A AAPM nasceu dentro da Escola SENAI
+            Francisco Matarazzo com o propósito
+            de oferecer materiais de qualidade,
+            desenvolvidos para facilitar a vida
+            dos estudantes.
+        </p>
+
+        <div class="sobre-icons">
+
+            <div>
+                🏅
+                <p>Qualidade Garantida</p>
+            </div>
+
+            <div>
+                ❤️
+                <p>Feito com Propósito</p>
+            </div>
+
+            <div>
+                👥
+                <p>Por estudantes</p>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+{% endblock %}
