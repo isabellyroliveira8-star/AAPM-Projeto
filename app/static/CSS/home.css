@@ -456,3 +456,66 @@ body{
 
 }
 
+.btn-login{
+    position: relative;
+    display: inline-block;
+    margin-top: 25px;
+    padding: 14px 40px;
+
+    background: linear-gradient(135deg, #0d47a1, #1565c0);
+    color: white;
+
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: bold;
+
+    border-radius: 12px;
+
+    overflow: hidden;
+    transition: all .4s ease;
+
+    box-shadow:
+        0 5px 15px rgba(13,71,161,.4),
+        0 0 20px rgba(21,101,192,.2);
+}
+
+/* brilho passando */
+.btn-login::before{
+    content: "";
+    position: absolute;
+
+    top: 0;
+    left: -100%;
+
+    width: 100%;
+    height: 100%;
+
+    background: linear-gradient(
+        120deg,
+        transparent,
+        rgba(255,255,255,.5),
+        transparent
+    );
+
+    transition: .7s;
+}
+
+/* animação hover */
+.btn-login:hover{
+    transform: translateY(-4px) scale(1.05);
+
+    box-shadow:
+        0 10px 25px rgba(13,71,161,.6),
+        0 0 35px rgba(21,101,192,.5);
+}
+
+/* efeito de brilho */
+.btn-login:hover::before{
+    left: 100%;
+}
+
+/* clique */
+.btn-login:active{
+    transform: scale(.98);
+}
+
