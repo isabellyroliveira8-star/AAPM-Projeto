@@ -1,0 +1,121 @@
+/* Reset */
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Corpo */
+body{
+    font-family: Arial, sans-serif;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background-color: #ffffff;
+}
+
+/* Menu */
+nav{
+    background-color: #0f172a; /* Azul marinho */
+    padding: 15px;
+}
+
+nav ul{
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+nav a{
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+nav a:hover{
+    color: #f97316; /* Laranja */
+}
+
+/* Área principal */
+main{
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 30px;
+}
+
+/* Caixa de login */
+.login-container{
+    width: 380px;
+    padding: 30px;
+    background-color: white;
+    border: 2px solid #f97316;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+}
+
+.login-container h2{
+    text-align: center;
+    margin-bottom: 20px;
+    color: #0f172a;
+}
+
+/* Campos */
+.campo{
+    margin-bottom: 15px;
+}
+
+.campo label{
+    display: block;
+    margin-bottom: 5px;
+    color: #0f172a;
+    font-weight: bold;
+}
+
+.campo input{
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #cbd5e1;
+    border-radius: 6px;
+}
+
+.campo input:focus{
+    outline: none;
+    border-color: #f97316;
+}
+
+/* Botão */
+button{
+    width: 100%;
+    padding: 12px;
+    border: none;
+    background-color: #f97316;
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+button:hover{
+    background-color: #ea580c;
+}
+
+/* Mensagem de erro */
+.erro{
+    color: #dc2626;
+    text-align: center;
+    margin-top: 10px;
+    font-size: 14px;
+}
+
+/* Rodapé */
+footer{
+    background-color: #0f172a;
+    color: white;
+    text-align: center;
+    padding: 15px;
+}
