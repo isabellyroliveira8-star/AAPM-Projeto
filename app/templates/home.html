@@ -1,129 +1,102 @@
-<!-- templates/index.html -->
-{% extends "base.html" %}
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AAPM</title>
 
-{% block title %}
-AAPM | Início
-{% endblock %}
+    <link rel="stylesheet" href="/app/static/CSS/home.css">
+</head>
 
-{% block content %}
+<body>
 
 <section class="hero">
 
-    <div class="hero-left">
+    <div class="bg-circle top"></div>
+    <div class="bg-circle bottom"></div>
 
-        <h1>
-            BEM VINDO <br>
-            A AAPM!
-        </h1>
+    <div class="container">
 
-        <div class="line"></div>
+        <!-- LEFT -->
+        <div class="hero-left">
 
-        <p>
-            O melhor para seus estudos
-            <strong>começa aqui!</strong>
-        </p>
+            <div class="logo">
 
-        <a href="#sobre" class="btn-hero">
-            VAMOS LÁ!
-        </a>
+                <img src="/app/static/IMG/logo.png" class="logo-img">
 
-        <div class="hero-icons">
+                <h1>AAPM</h1>
 
-            <div class="icon-item">
-                <span>📚</span>
-                <p>Material de qualidade</p>
             </div>
 
-            <div class="icon-item">
-                <span>👨‍🎓</span>
-                <p>Feito para estudantes</p>
-            </div>
+            <div class="dots"></div>
 
-            <div class="icon-item">
-                <span>🎯</span>
-                <p>Foco no seu futuro</p>
-            </div>
+            <h2>
+                BEM VINDO <br>
+                A AAPM!
+            </h2>
 
-        </div>
-
-    </div>
-
-    <div class="hero-right">
-
-        <img
-            src="/static/img/camisa.png"
-            class="camisa"
-        >
-
-        <img
-            src="/static/img/caneta.png"
-            class="caneta"
-        >
-
-        <img
-            src="/static/img/lapis.png"
-            class="lapis"
-        >
-
-        <div class="info-card">
-            <img src="/static/img/logo-senai.png">
+            <div class="line"></div>
 
             <p>
-                A AAPM existe para apoiar sua
-                jornada acadêmica.
+                O melhor para seus estudos
+                <strong>começa aqui!</strong>
             </p>
+
+            <div class="infos">
+
+                <div class="info-item">
+                    <span>📖</span>
+                    <p>Material de qualidade</p>
+                </div>
+
+                <div class="info-item">
+                    <span>👥</span>
+                    <p>Feito para estudantes</p>
+                </div>
+
+                <div class="info-item">
+                    <span>🎯</span>
+                    <p>Foco no seu futuro</p>
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- RIGHT -->
+        <div class="hero-right">
+
+            <img src="/app/static/IMG/camisa.png"
+                 class="camiseta">
+
+            <!-- CARD SENAI -->
+            <div class="senai-card">
+
+                <img src="/app/static/IMG/card.png"
+                     alt="Card SENAI">
+
+            </div>
+
+            <!-- CARD SOBRE -->
+            <div class="sobre-card">
+
+                <h3>SOBRE A AAPM</h3>
+
+                <p>
+                    A AAPM existe para apoiar seu aprendizado,
+                    oferecendo materiais selecionados e soluções
+                    que fazem a diferença no seu dia a dia.
+                </p>
+
+            </div>
+
         </div>
 
     </div>
 
 </section>
 
-<section class="sobre" id="sobre">
+<script src="/app/static/JS/home.js"></script>
 
-    <div class="sobre-img">
-        <img src="/static/img/senai.jpg">
-    </div>
-
-    <div class="sobre-content">
-
-        <span>SOBRE A AAPM</span>
-
-        <h2>
-            Apoiamos estudantes,
-            incentivamos o <strong>futuro.</strong>
-        </h2>
-
-        <div class="line-orange"></div>
-
-        <p>
-            A AAPM nasceu dentro da Escola SENAI
-            Francisco Matarazzo com o propósito
-            de oferecer materiais de qualidade,
-            desenvolvidos para facilitar a vida
-            dos estudantes.
-        </p>
-
-        <div class="sobre-icons">
-
-            <div>
-                🏅
-                <p>Qualidade Garantida</p>
-            </div>
-
-            <div>
-                ❤️
-                <p>Feito com Propósito</p>
-            </div>
-
-            <div>
-                👥
-                <p>Por estudantes</p>
-            </div>
-
-        </div>
-
-    </div>
-
-</section>
-
-{% endblock %}
+</body>
+</html>

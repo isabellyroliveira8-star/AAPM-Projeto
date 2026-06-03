@@ -1,0 +1,458 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, Helvetica, sans-serif;
+}
+
+body{
+    overflow-x:hidden;
+}
+
+.hero{
+    width:100%;
+    min-height:100vh;
+
+    background:linear-gradient(
+        135deg,
+        #ff6a00,
+        #ff7b00,
+        #ff5e00
+    );
+
+    position:relative;
+    overflow:hidden;
+}
+
+.container{
+    width:90%;
+    min-height:100vh;
+
+    margin:auto;
+
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+
+    gap:40px;
+}
+
+/* LEFT */
+
+.hero-left{
+    width:45%;
+    color:white;
+    z-index:2;
+}
+
+.logo{
+    display:flex;
+    align-items:center;
+    gap:15px;
+
+    margin-bottom:50px;
+
+    position:relative;
+}
+
+.logo-img{
+    width:55px;
+    object-fit:contain;
+
+    mix-blend-mode:screen;
+}
+
+.logo h1{
+    color:white;
+    font-size:42px;
+    font-weight:900;
+}
+
+.dots{
+    width:120px;
+    height:120px;
+
+    background-image:radial-gradient(
+        rgba(255,255,255,.5) 1px,
+        transparent 1px
+    );
+
+    background-size:15px 15px;
+
+    margin-bottom:40px;
+}
+
+.hero-left h2{
+    font-size:90px;
+    line-height:1;
+    margin-bottom:20px;
+    font-weight:900;
+}
+
+.line{
+    width:100px;
+    height:5px;
+
+    background:#4f46e5;
+
+    margin-bottom:25px;
+}
+
+.hero-left p{
+    font-size:26px;
+    line-height:1.5;
+    max-width:450px;
+}
+
+.hero-left strong{
+    display:block;
+}
+
+.infos{
+    display:flex;
+    gap:40px;
+    margin-top:80px;
+}
+
+.info-item{
+    display:flex;
+    align-items:center;
+    gap:10px;
+
+    color:white;
+
+    font-size:18px;
+}
+
+/* RIGHT */
+
+.hero-right{
+    width:55%;
+    height:100vh;
+
+    position:relative;
+}
+
+/* CAMISETA */
+
+.camiseta{
+
+    position:absolute;
+
+    width:560px;
+
+    right:240px;
+    top:70px;
+
+    z-index:2;
+
+    filter:drop-shadow(
+        0 25px 35px rgba(0,0,0,.35)
+    );
+
+    transition:.5s ease;
+
+    cursor:pointer;
+}
+
+.camiseta:hover{
+
+    transform:
+    scale(1.03)
+    rotate(-2deg);
+
+    filter:drop-shadow(
+        0 35px 45px rgba(0,0,0,.45)
+    );
+}
+
+/* CANETA */
+
+.caneta{
+
+    position:absolute;
+
+    width:110px;
+
+    left:-10px;
+    top:430px;
+
+    z-index:5;
+
+    transition:.4s ease;
+}
+
+.caneta:hover{
+
+    transform:
+    rotate(8deg)
+    scale(1.05);
+}
+
+/* LAPIS */
+
+.lapis{
+
+    position:absolute;
+
+    width:260px;
+
+    bottom:50px;
+    left:90px;
+
+    z-index:5;
+
+    transition:.4s ease;
+}
+
+.lapis:hover{
+
+    transform:
+    rotate(-5deg)
+    scale(1.05);
+}
+
+/* CARD SENAI */
+
+.senai-card{
+
+    position:absolute;
+
+    right:-10px;
+    top:90px;
+
+    z-index:20;
+
+    transition:.4s ease;
+
+    cursor:pointer;
+}
+
+.senai-card img{
+
+    width:210px;
+
+    border-radius:28px;
+
+    box-shadow:
+    0 20px 35px rgba(0,0,0,.18);
+
+    transition:.4s ease;
+}
+
+.senai-card:hover{
+
+    transform:
+    translateY(-10px)
+    scale(1.03);
+}
+
+.senai-card:hover img{
+
+    box-shadow:
+    0 30px 45px rgba(0,0,0,.28);
+}
+
+/* CARD SOBRE */
+
+.sobre-card{
+
+    position:absolute;
+
+    right:-10px;
+    top:360px;
+
+    width:210px;
+
+    background:white;
+
+    border-radius:28px;
+
+    padding:25px;
+
+    box-shadow:
+    0 20px 35px rgba(0,0,0,.18);
+
+    z-index:20;
+
+    transition:.4s ease;
+
+    cursor:pointer;
+}
+
+.sobre-card:hover{
+
+    transform:
+    translateY(-10px)
+    scale(1.03);
+
+    box-shadow:
+    0 30px 45px rgba(0,0,0,.25);
+}
+
+.sobre-card h3{
+    color:#ff6a00;
+
+    margin-bottom:15px;
+
+    font-size:20px;
+}
+
+.sobre-card p{
+    color:#666;
+
+    line-height:1.8;
+
+    font-size:14px;
+}
+
+/* FUNDO */
+
+.bg-circle{
+    position:absolute;
+
+    border-radius:50%;
+
+    background:rgba(255,255,255,.05);
+}
+
+.top{
+    width:400px;
+    height:400px;
+
+    top:-150px;
+    left:-100px;
+}
+
+.bottom{
+    width:350px;
+    height:350px;
+
+    bottom:-150px;
+    left:250px;
+}
+
+/* RESPONSIVO */
+
+@media(max-width:1200px){
+
+    .container{
+        flex-direction:column;
+        justify-content:center;
+
+        padding:40px 20px;
+    }
+
+    .hero-left,
+    .hero-right{
+        width:100%;
+    }
+
+    .hero-left{
+        text-align:center;
+    }
+
+    .logo{
+        justify-content:center;
+    }
+
+    .infos{
+        justify-content:center;
+        flex-wrap:wrap;
+    }
+
+    .hero-left h2{
+        font-size:60px;
+    }
+
+    .hero-left p{
+        margin:auto;
+    }
+
+    .hero-right{
+
+        height:700px;
+
+        margin-top:30px;
+    }
+
+    .camiseta{
+
+        width:350px;
+
+        right:50%;
+        top:120px;
+
+        transform:translateX(50%);
+    }
+
+    .senai-card{
+
+        right:20px;
+        top:60px;
+    }
+
+    .senai-card img{
+        width:150px;
+    }
+
+    .sobre-card{
+
+        right:20px;
+        top:280px;
+
+        width:160px;
+    }
+
+    .lapis{
+
+        width:180px;
+
+        left:50%;
+        bottom:40px;
+
+        transform:translateX(-50%);
+    }
+
+    .caneta{
+
+        width:80px;
+
+        left:40px;
+        top:330px;
+    }
+
+}
+
+@media(max-width:768px){
+
+    .hero{
+        min-height:100vh;
+    }
+
+    .hero-left h2{
+        font-size:42px;
+    }
+
+    .hero-left p{
+        font-size:18px;
+    }
+
+    .info-item{
+        font-size:15px;
+    }
+
+    .camiseta{
+        width:280px;
+    }
+
+    .senai-card{
+        scale:.9;
+    }
+
+    .sobre-card{
+        scale:.9;
+    }
+
+}
+

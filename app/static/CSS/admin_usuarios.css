@@ -1,0 +1,343 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, Helvetica, sans-serif;
+}
+
+body{
+    display:flex;
+    align-items:flex-start;
+
+    background:#fff7ed;
+
+    padding:20px;
+
+    gap:20px;
+}
+
+/* MENU */
+
+.sidebar{
+    width:240px;
+
+    min-height:90vh;
+
+    background:linear-gradient(180deg,#f97316,#ea580c);
+
+    padding:30px;
+
+    border-radius:20px;
+
+    margin-top:10px;
+
+    box-shadow:0 10px 25px rgba(0,0,0,0.08);
+}
+
+.sidebar h2{
+    color:white;
+    margin-bottom:30px;
+    font-size:28px;
+}
+
+.sidebar nav{
+    display:flex;
+    flex-direction:column;
+
+    gap:10px;
+}
+
+.sidebar nav a{
+    color:white;
+    text-decoration:none;
+
+    padding:14px 16px;
+
+    border-radius:12px;
+
+    transition:0.3s;
+
+    font-weight:500;
+}
+
+.sidebar nav a:hover{
+    background:rgba(255,255,255,0.2);
+}
+
+.ativo{
+    background:white;
+    color:#ea580c !important;
+    font-weight:bold;
+}
+
+/* CONTEÚDO */
+
+.conteudo{
+    width:900px;
+}
+
+/* TOPO */
+
+.topo{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+
+    margin-bottom:25px;
+}
+
+.topo h1{
+    color:#9a3412;
+    font-size:35px;
+}
+
+.topo p{
+    margin-top:5px;
+    color:#7c2d12;
+}
+
+/* BOTÃO */
+
+.btn-novo{
+    border:none;
+
+    background:#ea580c;
+    color:white;
+
+    padding:14px 22px;
+
+    border-radius:12px;
+
+    cursor:pointer;
+
+    font-size:15px;
+
+    transition:0.3s;
+}
+
+.btn-novo:hover{
+    background:#c2410c;
+    transform:translateY(-3px);
+
+    box-shadow:0 10px 20px rgba(234,88,12,0.3);
+}
+
+/* LISTA DE USUÁRIOS */
+
+.usuarios{
+    display:flex;
+    flex-direction:column;
+
+    gap:20px;
+}
+
+.usuario-card{
+    background:white;
+
+    border-radius:20px;
+
+    padding:25px;
+
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+
+    box-shadow:0 10px 25px rgba(0,0,0,0.08);
+
+    transition:0.3s;
+}
+
+.usuario-card:hover{
+    transform:translateY(-4px);
+}
+
+.usuario-info h3{
+    color:#9a3412;
+    margin-bottom:10px;
+    font-size:22px;
+}
+
+.usuario-info p{
+    margin-bottom:8px;
+    color:#444;
+}
+
+/* STATUS */
+
+.status{
+    background:#dcfce7;
+    color:#166534;
+
+    padding:6px 14px;
+
+    border-radius:20px;
+
+    font-size:13px;
+    font-weight:bold;
+
+    display:inline-block;
+
+    margin-top:10px;
+}
+
+/* AÇÕES */
+
+.acoes{
+    display:flex;
+    gap:10px;
+}
+
+.editar,
+.desativar{
+    border:none;
+
+    padding:10px 14px;
+
+    border-radius:10px;
+
+    cursor:pointer;
+
+    transition:0.3s;
+}
+
+.editar{
+    background:#fdba74;
+    color:#7c2d12;
+}
+
+.desativar{
+    background:#ef4444;
+    color:white;
+}
+
+.editar:hover,
+.desativar:hover{
+    transform:scale(1.05);
+}
+
+/* MODAL */
+
+.modal{
+    width:100%;
+    height:100vh;
+
+    background:rgba(0,0,0,0.4);
+
+    position:fixed;
+
+    top:0;
+    left:0;
+
+    display:none;
+
+    justify-content:center;
+    align-items:center;
+
+    backdrop-filter:blur(3px);
+}
+
+.modal-content{
+    width:450px;
+
+    background:white;
+
+    border-radius:20px;
+
+    padding:30px;
+
+    animation:aparecer 0.3s ease;
+}
+
+@keyframes aparecer{
+
+    from{
+        opacity:0;
+        transform:translateY(-20px);
+    }
+
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+
+}
+
+.modal-topo{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+
+    margin-bottom:20px;
+}
+
+.modal-topo h2{
+    color:#9a3412;
+}
+
+.modal-topo button{
+    border:none;
+    background:none;
+
+    font-size:20px;
+
+    cursor:pointer;
+}
+
+/* FORM */
+
+.grupo{
+    display:flex;
+    flex-direction:column;
+
+    margin-bottom:20px;
+}
+
+.grupo label{
+    margin-bottom:8px;
+    color:#7c2d12;
+    font-weight:bold;
+}
+
+.grupo input,
+.grupo select{
+    padding:12px;
+
+    border:2px solid #fed7aa;
+
+    border-radius:10px;
+
+    outline:none;
+
+    transition:0.3s;
+}
+
+.grupo input:focus,
+.grupo select:focus{
+    border-color:#ea580c;
+}
+
+/* BOTÃO SALVAR */
+
+.btn-salvar{
+    width:100%;
+
+    padding:14px;
+
+    border:none;
+
+    border-radius:12px;
+
+    background:#ea580c;
+    color:white;
+
+    font-size:15px;
+    font-weight:bold;
+
+    cursor:pointer;
+
+    transition:0.3s;
+}
+
+.btn-salvar:hover{
+    background:#c2410c;
+}
