@@ -19,8 +19,8 @@ templates = Jinja2Templates(directory="app/templates")
 @router.post("/login") 
 def fazer_login(
     request: Request,
-    email: str = Form(...),
-    senha: str = Form(...),
+    email: str = Form(...),   # O formulário HTML deve usar name="email"
+    senha: str = Form(...),   # O formulário HTML deve usar name="senha"
     db: Session = Depends(get_db)
 ):
     # 1. Buscar o usuário pelo email no db
@@ -33,7 +33,7 @@ def fazer_login(
     if not senha_correta:
         return templates.TemplateResponse(
             request,
-            "auth/login.html",
+            "index.html",     # AJUSTADO: Mudou de "auth/login.html" para "index.html"
             {   "request": request,
                 "erro": "Email ou senha incorretos"
             }
@@ -42,12 +42,12 @@ def fazer_login(
     if not usuario.ativo:
         return templates.TemplateResponse(
             request,
-            "auth/login.html",
+            "index.html",     # AJUSTADO: Mudou de "auth/login.html" para "index.html"
             {   "request": request,
                 "erro": "Usuário inativo, contate o administrador"
             }
         )
-   
+    
 
     # 3. Gera o token JWT
     token_data = {
@@ -77,6 +77,6 @@ def fazer_login(
 #Rota de sair
 @router.get("/logout")
 def sair(response: RedirectResponse):
-    response = RedirectResponse(url="/auth/login", status_code=302)
+    response = RedirectResponse(url="/", status_code=302) # AJUSTADO: Agora volta para o "/" onde fica o form
     response.delete_cookie("access_token")
     return response
