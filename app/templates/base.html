@@ -1,11 +1,18 @@
 {% load static %}
+<<<<<<< HEAD
 <!DOCTYPE html>
+=======
+
+<!DOCTYPE html>
+
+>>>>>>> Front-alana
 <html lang="pt-br">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+<<<<<<< HEAD
     <title>
         {% block titulo %}
         Sistema
@@ -13,10 +20,23 @@
     </title>
 
     <link rel="stylesheet" href="{% static 'css/login.css' %}">
+=======
+```
+<title>
+    {% block titulo %}
+    Sistema AAPM
+    {% endblock %}
+</title>
+
+<link rel="stylesheet" href="{% static 'CSS/base.css' %}">
+```
+
+>>>>>>> Front-alana
 </head>
 
 <body>
 
+<<<<<<< HEAD
     <header>
         <nav>
             <ul>
@@ -39,3 +59,35 @@
 </body>
 
 </html>
+=======
+```
+<aside class="sidebar">
+
+    <h2>AAPM</h2>
+
+    <nav>
+
+        <a href="{% url 'home' %}">
+            Home
+        </a>
+
+        <a href="{% url 'admin_usuarios' %}">
+            Usuários
+        </a>
+
+    </nav>
+
+</aside>
+
+<main class="conteudo-principal">
+
+    {% block conteudo %}
+    {% endblock %}
+
+</main>
+```
+
+</body>
+
+</html>
+>>>>>>> Front-alana
