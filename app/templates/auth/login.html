@@ -10,7 +10,7 @@ Login
 
     <h2>Login do Sistema</h2>
 
-    <form method="POST">
+    <form action="/auth/login" method="post">
 
         <div class="campo">
             <label>E-mail</label>
@@ -35,3 +35,297 @@ Login
 </div>
 
 {% endblock %}
+
+
+<!-- <!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AAPM - Sistema de Estoque e Vendas</title>
+    </head>
+<body>
+
+    <style>
+        /* RESET E CONFIGURAÇÕES GERAIS */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Arial, sans-serif;
+        }
+
+        body {
+            background-color: #0B132B; /* Azul Marinho Bem Escuro */
+            background-image: radial-gradient(circle at 20% 30%, #1C2541 0%, #0B132B 70%);
+            min-height: 100vh; /* Permite expansão se o conteúdo esticar no mobile */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #FFFFFF;
+            padding: 15px; /* Margem de segurança nas bordas para telas pequenas */
+        }
+
+        /* CARD DE LOGIN */
+        .login-wrapper {
+            background-color: #1C2541; /* Azul Marinho Intermediário */
+            width: 100%;
+            max-width: 450px;
+            border-radius: 12px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
+            overflow: hidden;
+            border: 1px solid rgba(255, 107, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        /* TOPO DO CARD / IDENTIDADE */
+        .login-header {
+            background-color: #0B132B;
+            padding: 30px 20px;
+            text-align: center;
+            border-bottom: 4px solid #FF6B00; /* Linha de destaque Laranja */
+        }
+
+        .login-header h1 {
+            color: #FF6B00; /* Laranja */
+            font-size: 2.2rem;
+            font-weight: 800;
+            letter-spacing: 1.5px;
+        }
+
+        .login-header p {
+            color: #5BC0BE; /* Azul piscina claro para complementar */
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-top: 5px;
+        }
+
+        /* CORPO DO FORMULÁRIO */
+        .login-body {
+            padding: 40px 30px;
+        }
+
+        .system-title {
+            text-align: center;
+            margin-bottom: 25px;
+        }
+
+        .system-title h2 {
+            font-size: 1.25rem;
+            font-weight: 400;
+            color: #E2E8F0;
+        }
+
+        /* GRUPOS DE ENTRADA (INPUTS) */
+        .input-group {
+            margin-bottom: 20px;
+            text-align: left;
+        }
+
+        .input-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-size: 0.85rem;
+            color: #FF6B00; /* Labels em Laranja */
+            font-weight: 600;
+            letter-spacing: 0.5px;
+        }
+
+        .input-group input, .input-group select {
+            width: 100%;
+            padding: 12px 15px;
+            border-radius: 6px;
+            border: 2px solid #3A506B;
+            background-color: #0B132B;
+            color: #FFFFFF;
+            font-size: 1rem;
+            outline: none;
+            transition: all 0.3s ease;
+            -webkit-appearance: none; /* Remove estilos padrão do Safari no mobile */
+            -moz-appearance: none;
+            appearance: none;
+        }
+
+        /* Setinha customizada para o Select devido ao 'appearance: none' */
+        .input-group select {
+            background-image: linear-gradient(45deg, transparent 50%, #FF6B00 50%), linear-gradient(135deg, #FF6B00 50%, transparent 50%);
+            background-position: calc(100% - 20px) calc(1em + 4px), calc(100% - 15px) calc(1em + 4px);
+            background-size: 5px 5px, 5px 5px;
+            background-repeat: no-repeat;
+        }
+
+        /* Estilização interna do Select (Opções) */
+        .input-group select option {
+            background-color: #1C2541;
+            color: #FFFFFF;
+        }
+
+        /* Efeito de Foco nos Inputs */
+        .input-group input:focus, .input-group select:focus {
+            border-color: #FF6B00;
+            box-shadow: 0 0 10px rgba(255, 107, 0, 0.25);
+        }
+
+        /* LINKS E CHECKS INTERNOS */
+        .form-actions {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.85rem;
+            margin-bottom: 30px;
+            gap: 10px; /* Evita que os textos grudem se a tela for muito fina */
+        }
+
+        .remember-me {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: #A0AEC0;
+            cursor: pointer;
+            user-select: none;
+        }
+
+        .remember-me input {
+            accent-color: #FF6B00;
+            width: 18px; /* Ligeiramente maior para facilitar o toque no celular */
+            height: 18px;
+            cursor: pointer;
+        }
+
+        .forgot-pass {
+            color: #A0AEC0;
+            text-decoration: none;
+            transition: color 0.2s;
+            white-space: nowrap; /* Impede quebra de linha estranha no link */
+        }
+
+        .forgot-pass:hover {
+            color: #FF6B00;
+            text-decoration: underline;
+        }
+
+        /* BOTÃO ENTRAR */
+        .btn-submit {
+            width: 100%;
+            padding: 14px;
+            background-color: #FF6B00; /* Botão Laranja */
+            border: none;
+            border-radius: 6px;
+            color: #FFFFFF;
+            font-size: 1.05rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.2s, transform 0.1s;
+            box-shadow: 0 4px 15px rgba(255, 107, 0, 0.2);
+        }
+
+        .btn-submit:hover {
+            background-color: #FF8833; /* Laranja mais claro no hover */
+        }
+
+        .btn-submit:active {
+            transform: scale(0.98);
+        }
+
+        /* RODAPÉ DO CARD */
+        .login-footer {
+            text-align: center;
+            margin-top: 25px;
+            padding-top: 20px;
+            border-top: 1px solid #3A506B;
+            font-size: 0.8rem;
+            color: #718096;
+        }
+
+        /* ADAPTAÇÕES PARA DISPOSITIVOS MÓVEIS (RESPONSIVIDADE) */
+        @media (max-width: 480px) {
+            body {
+                padding: 10px;
+                align-items: flex-start; /* Alinha o card no topo caso a tela seja muito baixa */
+                padding-top: 30px;
+            }
+
+            .login-wrapper {
+                border-radius: 8px;
+            }
+
+            .login-header {
+                padding: 25px 15px;
+            }
+
+            .login-header h1 {
+                font-size: 1.8rem; /* Fonte ligeiramente menor em celulares */
+            }
+
+            .login-body {
+                padding: 25px 20px; /* Reduz o espaçamento interno nas laterais para aproveitar a tela */
+            }
+
+            .system-title h2 {
+                font-size: 1.1rem;
+            }
+
+            .form-actions {
+                flex-direction: column; /* Alinha 'Lembrar' e 'Esqueceu a senha' um embaixo do outro */
+                align-items: flex-start;
+                gap: 15px;
+            }
+
+            .btn-submit {
+                padding: 16px; /* Aumenta a área de toque do botão no celular */
+                font-size: 1.1rem;
+            }
+        }
+    </style>
+
+    
+    <div class="login-wrapper">
+        <div class="login-header">
+            <h1>AAPM</h1>
+            <p>Gestão Escolar Integrada</p>
+        </div>
+
+        <div class="login-body">
+            <div class="system-title">
+                <h2>Controle de Estoque e Vendas</h2>
+            </div>
+
+            <form action="/auth/login" method="post">
+                <div class="input-group">
+                    <label for="perfil">Perfil de Acesso</label>
+                    <select id="perfil" required>
+                        <option value="" disabled selected>Selecione seu perfil...</option>
+                        <option value="caixa">Operador</option>
+                        <option value="admin">Administrador Geral</option>
+                    </select>
+                </div>
+
+                <div class="input-group">
+                    <label for="username">Usuário ou E-mail</label>
+                    <input type="text" id="username" placeholder="Digite seu usuário" required autocomplete="username">
+                </div>
+
+                <div class="input-group">
+                    <label for="password">Senha</label>
+                    <input type="password" id="password" placeholder="Digite sua senha" required autocomplete="current-password">
+                </div>
+
+                <div class="form-actions">
+                    <label class="remember-me">
+                        <input type="checkbox"> Lembrar credenciais
+                    </label>
+                    <a href="#" class="forgot-pass">Esqueceu a senha?</a>
+                </div>
+
+                <button type="submit" class="btn-submit">Acessar Sistema</button>
+            </form>
+
+            <div class="login-footer">
+                <p>&copy; 2026 AAPM. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html> -->
