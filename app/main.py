@@ -26,24 +26,23 @@ app.include_router(categoria_controller.router)
 app.include_router(produto_controller.router)
 @app.get("/")
 def tela_inicial(
-    Request: Request,
+    request: Request,
     usuario = Depends(get_usuario_opcional)
 ):
     #Tela não logado
     if usuario is None:
         return templates.TemplateResponse(
-            Request,
+            request,
             "index.html",
-            {"request": Request}
+            {"request": request}
         )
     #Logado - exibir a tela de funcionarios
     return templates.TemplateResponse(
-        Request,
-        "home.html",
-        {"request": Request, "usuario": usuario}
+        request,
+        "usuarios/admin_usuarios.html",
+        {"request": request, "usuario": usuario}
     )
    
-    
 
 
     #FINALIZADO
