@@ -1,37 +1,123 @@
-{% extends 'base.html' %}
+<!DOCTYPE html>
+<html lang="pt-BR">
 
-{% block titulo %}
-Login
-{% endblock %}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AAPM - Sistema de Estoque e Vendas</title>
 
-{% block conteudo %}
+    <link rel="stylesheet"
+          href="{{ request.url_for('static', path='css/login.css') }}">
+</head>
 
-<div class="login-container">
+<body>
 
-    <h2>Login do Sistema</h2>
+    <div class="login-wrapper">
 
-    <form method="POST">
-
-        <div class="campo">
-            <label>E-mail</label>
-            <input type="email" placeholder="Digite seu e-mail">
+        <div class="login-header">
+            <h1>AAPM</h1>
+            <p>Gestão Escolar Integrada</p>
         </div>
 
-        <div class="campo">
-            <label>Senha</label>
-            <input type="password" placeholder="Digite sua senha">
+        <div class="login-body">
+
+            <div class="system-title">
+                <h2>Controle de Estoque e Vendas</h2>
+            </div>
+
+            {% if erro %}
+                <div class="erro-login">
+                    {{ erro }}
+                </div>
+            {% endif %}
+
+            <form action="/auth/login" method="post">
+
+                <div class="input-group">
+                    <label for="perfil">Perfil de Acesso</label>
+
+                    <select
+                        id="perfil"
+                        name="perfil"
+                        required>
+
+                        <option value="" disabled selected>
+                            Selecione seu perfil...
+                        </option>
+
+                        <option value="caixa">
+                            Operador
+                        </option>
+
+                        <option value="admin">
+                            Administrador Geral
+                        </option>
+
+                    </select>
+                </div>
+
+                <div class="input-group">
+                    <label for="email">
+                        Usuário ou E-mail
+                    </label>
+
+                    <input
+                        type="email"
+                        id="email"
+                        name="email"
+                        placeholder="Digite seu e-mail"
+                        required
+                        autocomplete="username">
+                </div>
+
+                <div class="input-group">
+                    <label for="senha">
+                        Senha
+                    </label>
+
+                    <input
+                        type="password"
+                        id="senha"
+                        name="senha"
+                        placeholder="Digite sua senha"
+                        required
+                        autocomplete="current-password">
+                </div>
+
+                <div class="form-actions">
+
+                    <label class="remember-me">
+                        <input type="checkbox">
+                        Lembrar credenciais
+                    </label>
+
+                    <a href="#" class="forgot-pass">
+                        Esqueceu a senha?
+                    </a>
+
+                </div>
+
+                <button
+                    type="submit"
+                    class="btn-submit">
+                
+                    Acessar Sistema
+
+                </button>
+
+            </form>
+
+            <div class="login-footer">
+                <p>
+                    &copy; 2026 AAPM.
+                    Todos os direitos reservados.
+                </p>
+            </div>
+
         </div>
 
-        <button type="submit">
-            Entrar
-        </button>
+    </div>
 
-        <p class="erro">
-            E-mail ou senha inválidos.
-        </p>
+</body>
 
-    </form>
-
-</div>
-
-{% endblock %}
+</html>

@@ -9,7 +9,7 @@
 
 
 <!-- CSS -->
-<link rel="stylesheet" href="/app/static/CSS/admin_usuarios.css">
+<link rel="stylesheet" href="{{ url_for('static', path='CSS/admin_usuarios.css') }}">
 
 
 </head>
@@ -29,7 +29,7 @@
             Dashboard
         </a>
 
-        <a href="#" class="ativo">
+        <a href="/usuarios" class="ativo">
             Usuários
         </a>
 
@@ -37,11 +37,7 @@
             Produtos
         </a>
 
-        <a href="#">
-            Vendas
-        </a>
-
-        <a href="#">
+        <a href="/auth/logout">
             Logout
         </a>
 
@@ -85,7 +81,7 @@
 
                 <p>
                     <strong>Email:</strong>
-                    admin@email.com
+                    admin@teste.com
                 </p>
 
                 <p>

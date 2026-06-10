@@ -6,7 +6,7 @@ from sqlalchemy.orm import Session
 
 from app.database import get_db
 from app.models.usuarios import Usuario
-from app.auth import get_usuario_admin, hash_senha
+from app.auth import get_admin, hash_senha
 
 
 
@@ -23,7 +23,7 @@ templates = Jinja2Templates(directory="app/templates")
 def listar_usuarios(
     request: Request,
     db: Session = Depends(get_db),
-    admin = Depends(get_usuario_admin)  # bloqueia quem não é admin
+    admin = Depends(get_admin)  # bloqueia quem não é admin
 ):
     """Lista todos os usuários cadastrados no sistema."""
     usuarios = db.query(Usuario).order_by(Usuario.nome).all()
@@ -46,7 +46,7 @@ def listar_usuarios(
 @router.get("/novo")
 def form_novo_usuario(
     request: Request,
-    admin = Depends(get_usuario_admin)
+    admin = Depends(get_admin)
 ):
     """Exibe o formulário de cadastro de novo usuário."""
     return templates.TemplateResponse(
@@ -68,7 +68,7 @@ def criar_usuario(
     senha: str = Form(...),
     role: str = Form(...),
     db: Session = Depends(get_db),
-    admin = Depends(get_usuario_admin)
+    admin = Depends(get_admin)
 ):
     """Processa o formulário e cria o usuário no banco."""
 
@@ -130,7 +130,7 @@ def form_editar_usuario(
     usuario_id: int,
     request: Request,
     db: Session = Depends(get_db),
-    admin = Depends(get_usuario_admin)
+    admin = Depends(get_admin)
 ):
     """Exibe o formulário preenchido com os dados atuais do usuário."""
     editando = db.query(Usuario).filter(Usuario.id == usuario_id).first()
@@ -158,7 +158,7 @@ def editar_usuario(
     role: str = Form(...),
     senha: str = Form(""),   # opcional na edição — vazio = não altera
     db: Session = Depends(get_db),
-    admin = Depends(get_usuario_admin)
+    admin = Depends(get_admin)
 ):
     """Atualiza os dados do usuário. Senha só é alterada se preenchida."""
     editando = db.query(Usuario).filter(Usuario.id == usuario_id).first()
@@ -220,7 +220,7 @@ def editar_usuario(
 def toggle_ativo(
     usuario_id: int,
     db: Session = Depends(get_db),
-    admin = Depends(get_usuario_admin)
+    admin = Depends(get_admin)
 ):
     """
     Alterna o status ativo/inativo do usuário.
