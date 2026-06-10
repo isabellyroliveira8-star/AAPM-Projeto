@@ -1,47 +1,93 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{ produto.nome }} — AAPM SENAI</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', path='css/produto_detalhe.css') }}">
 </head>
+
 <body>
-    {% if request.query_params.get('editado') == 'ok' %}
-        <p style="color:green">Produto atualizado com sucesso!</p>
-    {% endif %}
 
-    <img src="{{ produto.imagem_url }}"
-         alt="{{ produto.nome }}"
-         width="200"
-         style="object-fit:cover">
+    <header class="topo">
+        <h1>AAPM SENAI</h1>
+    </header>
 
-    <h1>{{ produto.nome }}</h1>
+    <main class="container">
 
-    <p>Categoria: {{ produto.categoria.nome if produto.categoria else "—" }}</p>
+        {% if request.query_params.get('editado') == 'ok' %}
+        <div class="alert sucesso">
+            Produto atualizado com sucesso!
+        </div>
+        {% endif %}
 
-    <table border="1" cellpadding="8">
-        <tr><td><strong>Preço</strong></td>
-            <td>R$ {{ "%.2f"|format(produto.preco) }}</td></tr>
-        <tr><td><strong>Estoque atual</strong></td>
-            <td>{{ produto.estoque_atual }}</td></tr>
-    </table>
+        {% if request.query_params.get('movimentacao') == 'ok' %}
+        <div class="alert sucesso">
+            Movimentação registrada com sucesso!
+        </div>
+        {% endif %}
 
-    {% if request.query_params.get('movimentacao') == 'ok' %}
-        <p style="color:green">Movimentação registrada com sucesso!</p>
-    {% endif %}
+        <section class="card-produto">
 
-    <!-- Links de movimentação -->
-    <a href="/movimentacoes/nova?produto_id={{ produto.id }}">
-        + Registrar movimentação
-    </a>
-    &nbsp;|&nbsp;
-    <a href="/movimentacoes/produto/{{ produto.id }}">
-        Ver histórico completo
-    </a>
+            <div class="imagem-container">
+                <img src="{{ produto.imagem_url }}"
+                    alt="{{ produto.nome }}"
+                    class="produto-imagem">
+            </div>
 
-    {% if usuario.role == 'admin' %}
-        <a href="/produtos/{{ produto.id }}/editar">Editar</a>
-    {% endif %}
+            <div class="produto-info">
 
-    <a href="/produtos">← Voltar</a>
+                <span class="categoria">
+                    {{ produto.categoria.nome if produto.categoria else "Sem categoria" }}
+                </span>
+
+                <h2>{{ produto.nome }}</h2>
+
+                <table class="tabela-info">
+                    <tr>
+                        <td><strong>Preço</strong></td>
+                        <td>R$ {{ "%.2f"|format(produto.preco) }}</td>
+                    </tr>
+
+                    <tr>
+                        <td><strong>Estoque Atual</strong></td>
+                        <td>{{ produto.estoque_atual }}</td>
+                    </tr>
+                </table>
+
+                <div class="acoes">
+
+                    <a href="/movimentacoes/nova?produto_id={{ produto.id }}"
+                        class="btn btn-laranja">
+                        + Registrar Movimentação
+                    </a>
+
+                    <a href="/movimentacoes/produto/{{ produto.id }}"
+                        class="btn btn-azul">
+                        Ver Histórico
+                    </a>
+
+                    {% if usuario.role == 'admin' %}
+                    <a href="/produtos/{{ produto.id }}/editar"
+                        class="btn btn-editar">
+                        Editar Produto
+                    </a>
+                    {% endif %}
+
+                </div>
+
+                <div class="voltar">
+                    <a href="/produtos">← Voltar para Produtos</a>
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
 </body>
+
 </html>
