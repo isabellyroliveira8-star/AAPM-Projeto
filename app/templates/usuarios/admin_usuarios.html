@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+
 <html lang="pt-br">
 
 <head>
@@ -6,184 +7,185 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cadastro de Usuários</title>
 
-    <!-- CSS -->
-    <link rel="stylesheet" href="/app/static/CSS/admin_usuarios.css">
+
+<!-- CSS -->
+<link rel="stylesheet" href="/app/static/CSS/admin_usuarios.css">
+
+
 </head>
 
 <body>
 
-    <!-- MENU -->
 
-    <aside class="sidebar">
+<!-- MENU -->
 
-        <h2>PDV AAPM</h2>
+<aside class="sidebar">
 
-        <nav>
+    <h2>PDV AAPM</h2>
 
-            <nav>
+    <nav>
 
-                <a href="#">
-                    Dashboard
-                </a>
+        <a href="#">
+            Dashboard
+        </a>
 
-                <a href="#" class="ativo">
-                    Usuários
-                </a>
+        <a href="#" class="ativo">
+            Usuários
+        </a>
 
-                <a href="/produtos">
-                    Produtos
-                </a>
+        <a href="/produtos">
+            Produtos
+        </a>
 
-                <a href="#">
-                    Vendas
-                </a>
+        <a href="#">
+            Vendas
+        </a>
 
-                <a href="#">
-                    Logout
-                </a>
+        <a href="#">
+            Logout
+        </a>
 
-            </nav>
-        </nav>
+    </nav>
 
-    </aside>
+</aside>
 
-    <!-- CONTEÚDO -->
+<!-- CONTEÚDO -->
 
-    <main class="conteudo">
+<main class="conteudo">
 
-        <!-- TOPO -->
+    <!-- TOPO -->
 
-        <div class="topo">
+    <div class="topo">
 
-            <div>
+        <div>
 
-                <h1>Cadastro de Usuários</h1>
+            <h1>Cadastro de Usuários</h1>
+
+            <p>
+                Gerencie os usuários do sistema
+            </p>
+
+        </div>
+
+        <button id="abrirModal" class="btn-novo">
+            + Novo Usuário
+        </button>
+
+    </div>
+
+    <!-- LISTA DE USUÁRIOS -->
+
+    <section class="usuarios" id="tabelaUsuarios">
+
+        <div class="usuario-card">
+
+            <div class="usuario-info">
+
+                <h3>Administrador</h3>
 
                 <p>
-                    Gerencie os usuários do sistema
+                    <strong>Email:</strong>
+                    admin@email.com
                 </p>
+
+                <p>
+                    <strong>Role:</strong>
+                    ADMIN
+                </p>
+
+                <span class="status">
+                    Ativo
+                </span>
 
             </div>
 
-            <button id="abrirModal" class="btn-novo">
-                + Novo Usuário
+            <div class="acoes">
+
+                <button class="editar">
+                    Editar
+                </button>
+
+                <button class="desativar">
+                    Desativar
+                </button>
+
+            </div>
+
+        </div>
+
+    </section>
+
+</main>
+
+<!-- MODAL -->
+
+<div class="modal" id="modal">
+
+    <div class="modal-content">
+
+        <div class="modal-topo">
+
+            <h2>Novo Usuário</h2>
+
+            <button id="fecharModal">
+                X
             </button>
 
         </div>
 
-        <!-- LISTA DE USUÁRIOS -->
+        <form id="formUsuario">
 
-        <section class="usuarios" id="tabelaUsuarios">
+            <div class="grupo">
 
-            <div class="usuario-card">
+                <label>Nome</label>
 
-                <div class="usuario-info">
-
-                    <h3>Administrador</h3>
-
-                    <p>
-                        <strong>Email:</strong>
-                        admin@email.com
-                    </p>
-
-                    <p>
-                        <strong>Role:</strong>
-                        ADMIN
-                    </p>
-
-                    <span class="status">
-                        Ativo
-                    </span>
-
-                </div>
-
-                <div class="acoes">
-
-                    <button class="editar">
-                        Editar
-                    </button>
-
-                    <button class="desativar">
-                        Desativar
-                    </button>
-
-                </div>
+                <input type="text" id="nome" required>
 
             </div>
 
-        </section>
+            <div class="grupo">
 
-    </main>
+                <label>Email</label>
 
-    <!-- MODAL -->
-
-    <div class="modal" id="modal">
-
-        <div class="modal-content">
-
-            <div class="modal-topo">
-
-                <h2>Novo Usuário</h2>
-
-                <button id="fecharModal">
-                    X
-                </button>
+                <input type="email" id="email" required>
 
             </div>
 
-            <form id="formUsuario">
+            <div class="grupo">
 
-                <div class="grupo">
+                <label>Senha</label>
 
-                    <label>Nome</label>
+                <input type="password" id="senha" required>
 
-                    <input type="text" id="nome" required>
+            </div>
 
-                </div>
+            <div class="grupo">
 
-                <div class="grupo">
+                <label>Role</label>
 
-                    <label>Email</label>
+                <select id="role">
 
-                    <input type="email" id="email" required>
+                    <option>ADMIN</option>
 
-                </div>
+                    <option>FUNCIONARIO</option>
 
-                <div class="grupo">
+                </select>
 
-                    <label>Senha</label>
+            </div>
 
-                    <input type="password" id="senha" required>
+            <button type="submit" class="btn-salvar">
+                Salvar Usuário
+            </button>
 
-                </div>
-
-                <div class="grupo">
-
-                    <label>Role</label>
-
-                    <select id="role">
-
-                        <option>ADMIN</option>
-
-                        <option>FUNCIONARIO</option>
-
-                    </select>
-
-                </div>
-
-                <button type="submit" class="btn-salvar">
-                    Salvar Usuário
-                </button>
-
-            </form>
-
-        </div>
+        </form>
 
     </div>
 
-    <!-- JS -->
-    <script src="/app/static/js/admin_usuarios.js"></script>
+</div>
+
+<!-- JS -->
+<script src="/app/static/JS/admin_usuarios.js"></script>
+
 
 </body>
-
-</html>
+<html>
