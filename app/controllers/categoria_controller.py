@@ -49,7 +49,7 @@ def form_nova_categoria(
     admin = Depends(get_admin)
 ):
     """Exibe o formulário de cadastro de categoria."""
-    return templates.TemplateResponse(
+    return templates.TemplateResponse( 
         request,
         "categorias/form.html",
         {
