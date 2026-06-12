@@ -1,39 +1,26 @@
-window.addEventListener("load", () => {
+document.addEventListener("DOMContentLoaded", () => {
+    const menuItems = document.querySelectorAll(".menu-item");
+    const conteudo = document.querySelector(".conteudo-principal");
 
-    const hero = document.querySelector(".hero");
+    // Fade-in sutil ao carregar o gerenciamento de produtos
+    if (conteudo) {
+        conteudo.style.opacity = "0";
+        conteudo.style.transform = "translateY(10px)";
+        conteudo.style.transition = "opacity 0.4s ease, transform 0.4s ease";
 
-    hero.style.opacity = "0";
+        setTimeout(() => {
+            conteudo.style.opacity = "1";
+            conteudo.style.transform = "translateY(0)";
+        }, 50);
+    }
 
-    setTimeout(() => {
-
-        hero.style.transition = "1s";
-        hero.style.opacity = "1";
-
-    }, 200);
-
-    // CAMISETA FLUTUANDO
-
-    const camiseta =
-    document.querySelector(".camiseta");
-
-    let position = 0;
-    let direction = 1;
-
-    setInterval(() => {
-
-        position += direction * 0.5;
-
-        camiseta.style.transform =
-        `translateY(${position}px)`;
-
-        if(position > 10){
-            direction = -1;
-        }
-
-        if(position < -10){
-            direction = 1;
-        }
-
-    }, 30);
-
+    // Feedback visual rápido ao clicar nos itens do menu (antes da rota mudar)
+    menuItems.forEach(item => {
+        item.addEventListener("click", function() {
+            if (!this.classList.contains("logout")) {
+                menuItems.forEach(i => i.classList.remove("active"));
+                this.classList.add("active");
+            }
+        });
+    });
 });
