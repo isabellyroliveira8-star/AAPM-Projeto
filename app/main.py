@@ -33,7 +33,7 @@ def tela_inicial(
     if usuario is None:
         return templates.TemplateResponse(
             request,
-            "index.html",
+            "usuarios/index.html",
             {"request": request}
         )
     #Logado - exibir a tela de funcionarios
